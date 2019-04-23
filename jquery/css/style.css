@@ -78,10 +78,15 @@ fieldset {
   -webkit-border-radius: 4px; }
 
 label {
-  display: inline-block;
-  min-width: 100px; }
+  display: table-row;
+  min-width: 100px; 
+}
 
-input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
+label[for="checkbox"]{
+  display: inline-block;
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea[type="message"] {
   margin: 8px;
   padding: 6px 12px;
   outline: none;
@@ -90,6 +95,8 @@ input[type="text"], input[type="email"], input[type="password"], input[type="tel
   box-shadow: inset 0 0 3px 3px #fafafa; }
 
 input[type="submit"] {
+  margin: 8px;
+  padding: 6px 12px;
   font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
   font-size: 16px;
   padding: 4px 8px;
