@@ -219,6 +219,32 @@ $(function () {
     }
   }
 
+  //-------------Ajax-------------//
 
+  $.getJSON("js/eduagency.json"
+  ).done(function(data,response,xhr) {
+    // Inside done(), you can work with the retrieved data.
+    console.log(data);
+    console.log(response);
+    console.log(xhr);
+
+    $.each(data,function(index, data){
+      // console.log(data);
+      let schoolurl = $("<a>")
+      .attr("id", data.o_tlc_agency_name)
+      .attr("href", data.o_tlc_agency_link)
+      .append($("<strong>").text(data.o_tlc_agency_name));
+
+      let schoollist = $("<li>")
+      .text("school name [" + (index + 1) + "]:")
+      .append(schoolurl);
+
+      schoollist.appendTo("#educate");    // same as $("#educate").append(schoollist);
+    });
+
+  }).fail(function( jqxhr, textStatus, error ) {   
+    var err = textStatus + ", " + error; 
+    console.log( "Request Failed: " + err );
+  });
 
 });
